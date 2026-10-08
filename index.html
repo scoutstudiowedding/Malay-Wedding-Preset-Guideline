@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soft Malay Wedding — Lightroom E-book V1.0 | Scout Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f7f1e8;
+  --paper2:#fdfaf3;
+  --ink:#3e2723;
+  --muted:#8a7a6f;
+  --line:#e8ddd0;
+  --gold:#8d6e4a;
+  --gold2:#b89a7a;
+  --card:#fffaf1;
+  --accent:#f3e8d3;
+  --shadow:0 8px 32px rgba(62,39,35,.08);
+}
+[data-theme="dark"]{
+  --paper:#0b0b0c;
+  --paper2:#121214;
+  --ink:#efede6;
+  --muted:#8f8d86;
+  --line:#26262a;
+  --gold:#d2ae68;
+  --gold2:#8f6f27;
+  --card:#141416;
+  --accent:#1d1a12;
+  --shadow:0 8px 32px rgba(0,0,0,.4);
+}
+@media (prefers-color-scheme: dark){
+  :root[data-theme="system"]{
+    --paper:#0b0b0c;
+    --paper2:#121214;
+    --ink:#efede6;
+    --muted:#8f8d86;
+    --line:#26262a;
+    --gold:#d2ae68;
+    --gold2:#8f6f27;
+    --card:#141416;
+    --accent:#1d1a12;
+    --shadow:0 8px 32px rgba(0,0,0,.4);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.7 Inter,sans-serif;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:400}
+a{color:inherit}
+.mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+
+/* COVER */
+.cover{min-height:76vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:72px 24px;background:linear-gradient(180deg,var(--paper2),var(--paper))}
+.cover-inner{max-width:700px}
+.cover .eyebrow{color:var(--gold);letter-spacing:.22em}
+.cover h1{font-size:clamp(40px,7vw,72px);line-height:.95;margin:18px 0 14px}
+.cover h1 em{font-style:italic;font-weight:300}
+.cover p.lead{color:var(--muted);font-size:18px;margin-top:18px;max-width:58ch;margin-inline:auto}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--paper) 88%, transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+nav .in{max-width:1180px;margin:0 auto;padding:0 16px 0 24px;height:60px;display:flex;align-items:center;gap:14px}
+nav b{font-weight:600;white-space:nowrap;letter-spacing:-.01em}
+.nav-links{display:flex;gap:6px;margin-left:12px;overflow-x:auto;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{padding:7px 12px;color:var(--muted);white-space:nowrap;border-radius:999px;font-size:13px;transition:.2s;text-decoration:none}
+.nav-links a:hover{background:var(--card);color:var(--ink)}
+.nav-actions{margin-left:auto;display:flex;align-items:center;gap:8px}
+.ctrl{display:flex;align-items:center;gap:2px;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--card)}
+.ctrl button{font:600 10px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;padding:7px 11px;border-radius:999px;border:1px solid transparent;background:transparent;color:var(--muted);cursor:pointer;transition:.2s}
+.ctrl button.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+[data-theme="dark"] .ctrl button.active{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.ctrl button:hover{color:var(--ink)}
+.icon-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--card);display:grid;place-items:center;cursor:pointer;color:var(--muted)}
+.icon-btn:hover{color:var(--ink)}
+#menuBtn{display:none}
+@media(max-width:980px){
+  .nav-links{display:none}
+  .nav-links.open{display:flex;position:absolute;top:60px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);padding:12px 16px;flex-wrap:wrap;gap:6px;max-width:100vw}
+  #menuBtn{display:grid}
+}
+
+/* LAYOUT */
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+section{padding:72px 0;border-bottom:1px solid var(--line)}
+section:last-child{border-bottom:0}
+.lbl{color:var(--gold);display:block;margin-bottom:14px}
+h2{font-size:clamp(30px,5vw,48px);line-height:1.05;margin:0 0 12px}
+h2 span{font-style:italic}
+h3{font-size:22px;margin:28px 0 10px}
+p{margin:12px 0}
+.lead{font-size:18px;color:var(--muted)}
+
+/* TOC */
+.toc{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:24px;border-radius:12px;overflow:hidden}
+.toc a{display:flex;justify-content:space-between;gap:16px;background:var(--card);padding:16px 20px;text-decoration:none;transition:.2s}
+.toc a:hover{background:var(--paper2)}
+.toc b{font-family:'Cormorant Garamond',serif;font-size:18px}
+.toc span{color:var(--muted);font-size:13px}
+
+/* VIDEO ACTION - NO BLACK PLAYER */
+.video-action{margin:24px 0;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;box-shadow:var(--shadow)}
+.video-action div b{display:block;font-family:'Cormorant Garamond',serif;font-size:18px}
+.video-action div small{color:var(--muted);font-size:13px}
+@media(max-width:600px){.video-action{flex-direction:column;align-items:flex-start}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);font:500 13px Inter;letter-spacing:.02em;text-decoration:none;transition:.2s;white-space:nowrap}
+.btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:#fff}
+.btn.outline{background:transparent;color:var(--ink)}
+[data-theme="dark"] .btn.outline{color:var(--ink);border-color:var(--line)}
+.btn.small{padding:10px 16px;font-size:12px}
+
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin:20px 0;transition:background .3s,border-color .3s}
+.card.gold{border-color:var(--gold2);background:var(--accent)}
+.card h4{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 10px}
+.card ul, .card ol{margin:8px 0 0 18px}
+.card li{margin:6px 0;color:var(--ink)}
+.check li{list-style:none;position:relative;padding-left:6px}
+.check li::before{content:'•';position:absolute;left:-12px;color:var(--gold)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}}
+
+.formula{counter-reset:step;padding-left:0}
+.formula li{counter-increment:step;list-style:none;position:relative;padding-left:32px;margin:10px 0}
+.formula li::before{content:counter(step);position:absolute;left:0;top:2px;width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--paper);font:600 11px/22px Inter;text-align:center}
+
+footer{padding:48px 24px;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+#prog{position:fixed;left:0;top:0;height:3px;width:0;background:var(--gold);z-index:50}
+</style>
+</head>
+<body>
+<i id="prog"></i>
+
+<div class="cover">
+  <div class="cover-inner">
+    <span class="mono eyebrow" data-i18n="eyebrow">Scout Studio</span>
+    <h1 data-i18n="cover_h1">Soft Malay<br><em>Wedding</em><br>Lightroom<br>E-book V1.0</h1>
+    <p class="lead" data-i18n="cover_lead">A starter kit for photographers who want a soft, clean and timeless Malay wedding look — with preset, formula, video tutorials and export guide.</p>
+    <div style="margin-top:28px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+      <a href="#toc" class="btn small" data-i18n="btn_start">Start Reading ↓</a>
+      <a href="https://drive.google.com/drive/folders/1vTIe0Ko1snfybAWg2u4yRBsO1zf3A3Px?usp=sharing" target="_blank" class="btn small outline" data-i18n="btn_preset">Download Preset</a>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <div class="in">
+    <b>Scout Studio</b>
+    <div class="nav-links" id="navLinks">
+      <a href="#module-1" data-i18n="nav_1">01 Look</a>
+      <a href="#module-2" data-i18n="nav_2">02 Install</a>
+      <a href="#module-3" data-i18n="nav_3">03 Classic</a>
+      <a href="#module-4" data-i18n="nav_4">04 Mobile</a>
+      <a href="#module-5" data-i18n="nav_5">05 Apply</a>
+      <a href="#module-6" data-i18n="nav_6">06 Formula</a>
+      <a href="#module-7" data-i18n="nav_7">07 Problems</a>
+      <a href="#module-8" data-i18n="nav_8">08 Crop</a>
+      <a href="#module-9" data-i18n="nav_9">09 Review</a>
+      <a href="#module-10" data-i18n="nav_10">10 Export</a>
+      <a href="#support" data-i18n="nav_support">Support</a>
+    </div>
+    <div class="nav-actions">
+      <div class="ctrl" id="langSwitch">
+        <button data-lang="en" class="active" onclick="setLang('en')">EN</button>
+        <button data-lang="ms" onclick="setLang('ms')">BM</button>
+      </div>
+      <div class="ctrl" id="themeSwitch">
+        <button data-theme="light" class="active" onclick="setTheme('light')">Day</button>
+        <button data-theme="dark" onclick="setTheme('dark')">Night</button>
+        <button data-theme="system" onclick="setTheme('system')">Auto</button>
+      </div>
+      <button class="icon-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</nav>
+
+<div id="toc" class="wrap" style="padding-top:56px">
+  <span class="mono lbl" data-i18n="toc_lbl">Table of Contents</span>
+  <h2 data-i18n="toc_title">Everything inside the <span>package</span></h2>
+  <div class="toc">
+    <a href="#module-1"><b data-i18n="toc_1">01 — Understanding the Soft Malay Wedding Look</b><span data-i18n="toc_1_sub">Module 1 · Video</span></a>
+    <a href="#module-2"><b data-i18n="toc_2">02 — Preset Installation & File Management</b><span data-i18n="toc_2_sub">Module 2 · Video + Download</span></a>
+    <a href="#module-3"><b data-i18n="toc_3">03 — Installing Preset in Lightroom Classic</b><span data-i18n="toc_3_sub">Module 3 · Video</span></a>
+    <a href="#module-4"><b data-i18n="toc_4">04 — Installing Preset in Lightroom Cloud / Mobile</b><span data-i18n="toc_4_sub">Module 4 · Video</span></a>
+    <a href="#module-5"><b data-i18n="toc_5">05 — Applying the Preset Properly</b><span data-i18n="toc_5_sub">Module 5 · Video</span></a>
+    <a href="#module-6"><b data-i18n="toc_6">06 — Basic Adjustment Formula</b><span data-i18n="toc_6_sub">Module 6 · Video</span></a>
+    <a href="#module-7"><b data-i18n="toc_7">07 — Common Editing Problems & Quick Fixes</b><span data-i18n="toc_7_sub">Module 7 · 2 Videos</span></a>
+    <a href="#module-8"><b data-i18n="toc_8">08 — Cropping & Straightening</b><span data-i18n="toc_8_sub">Module 8 · Video</span></a>
+    <a href="#module-9"><b data-i18n="toc_9">09 — Before & After Review</b><span data-i18n="toc_9_sub">Module 9 · Video</span></a>
+    <a href="#module-10"><b data-i18n="toc_10">10 — Export Setting for Final JPG</b><span data-i18n="toc_10_sub">Module 10 · Video</span></a>
+    <a href="#quickref"><b data-i18n="toc_qr">Quick Reference — Editing Formula</b><span data-i18n="toc_qr_sub">Cheat sheet</span></a>
+    <a href="#support"><b data-i18n="toc_sp">Support & Questions</b><span data-i18n="toc_sp_sub">Telegram Group</span></a>
+  </div>
+  <div class="card" style="margin-top:28px">
+    <h4 data-i18n="what_get">What you will get</h4>
+    <ul class="check">
+      <li data-i18n="wg_1">Scout Studio Soft Malay Wedding Preset</li>
+      <li data-i18n="wg_2">Step-by-step digital e-book guide</li>
+      <li data-i18n="wg_3">Tutorial video links</li>
+      <li data-i18n="wg_4">Basic Lightroom adjustment formula</li>
+      <li data-i18n="wg_5">Export setting guide</li>
+      <li data-i18n="wg_6">Common problem and solution guide</li>
+      <li data-i18n="wg_7">Before and after editing reference</li>
+    </ul>
+  </div>
+</div>
+
+<!-- MODULE 1 -->
+<section id="module-1">
+  <div class="wrap">
+    <span class="mono lbl" data-i18n="m1_lbl">Module 01</span>
+    <h2 data-i18n="m1_title">Understanding the <span>Soft Malay Wedding Look</span></h2>
+    <div class="video-action">
+      <div><b data-i18n="m1_video">Tutorial Video — Module 1</b><small data-i18n="m1_video_sub">Step-by-step walkthrough</small></div>
+      <a class="btn gold" href="https://youtu.be/VF5RRbh3m_4" target="_blank" data-i18n="btn_yt">Watch on YouTube ↗</a>
+    </div>
+    <div class="card">
+      <h4 data-i18n="m1_note_h">Important Notes</h4>
+      <p data-i18n="m1_p1">The Soft Malay Wedding style is about creating a wedding photo that feels clean, soft, bright, romantic, and natural. The photo should look elegant without feeling too heavy, too contrasty, or over-edited.</p>
+      <p data-i18n="m1_p2">Final image should have a bright and airy feel, especially for Malay wedding scenes with white outfits, pelamin decoration, floral background, and soft indoor lighting.</p>
+    </div>
+    <div class="grid2">
+      <div class="card"><h4 data-i18n="m1_wb">White Balance</h4><p data-i18n="m1_wb_p">Photo should not look too yellow, too blue, or too green.</p><h4 data-i18n="m1_skin" style="margin-top:16px">Skin Tone</h4><p data-i18n="m1_skin_p">Face should look soft and natural. Avoid too orange, too red, or too pale.</p></div>
+      <div class="card"><h4 data-i18n="m1_hl">Highlight Control</h4><p data-i18n="m1_hl_p">Malay wedding photos often have white baju, veil, bright pelamin. Make sure white areas still keep detail.</p><h4 data-i18n="m1_green" style="margin-top:16px">Green Control</h4><p data-i18n="m1_green_p">Pelamin decoration has many green leaves. Green should support the subject, not overpower.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MODULE 2 -->
+<section id="module-2">
+  <div class="wrap">
+    <span class="mono lbl" data-i18n="m2_lbl">Module 02</span>
+    <h2 data-i18n="m2_title">Preset Installation<br><span>& File Management</span></h2>
+    <div class="video-action">
+      <div><b data-i18n="m2_video">Tutorial Video — Module 2</b><small data-i18n="m2_video_sub">How to organize your files</small></div>
+      <a class="btn gold" href="https://youtu.be/_i8CSz9h3bg" target="_blank" data-i18n="btn_yt">Watch on YouTube ↗</a>
+    </div>
+    <div class="card gold">
+      <h4 data-i18n="m2_dl">Download Your Preset</h4>
+      <p data-i18n="m2_dl_p">Your XMP preset files are in Google Drive. If you receive a ZIP file, extract first before importing into Lightroom Classic.</p>
+      <a class="btn" href="https://drive.google.com/drive/folders/1vTIe0Ko1snfybAWg2u4yRBsO1zf3A3Px?usp=sharing" target="_blank" data-i18n="btn_dl">Download Preset Now ↗</a>
+      <p style="margin-top:12px;font-size:13px;color:var(--muted)" data-i18n="m2_dl_note">Recommended folder: Scout Studio Soft Malay Wedding Preset — Keep a backup copy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MODULE 3 -->
+<section id="module-3">
+  <div class="wrap">
+    <span class="mono lbl" data-i18n="m3_lbl">Module 03</span>
+    <h2 data-i18n="m3_title">Installing the Preset in<br><span>Lightroom Classic</span></h2>
+    <div class="video-action">
+      <div><b data-i18n="m3_video">Tutorial Video — Module 3</b></div>
+      <a class="btn gold" href="https://youtu.be/5BvTEgUxVC8" target="_blank" data-i18n="btn_yt">Watch on YouTube ↗</a>
+    </div>
+    <div class="card"><h4 data-i18n="m3_steps_h">Basic installation steps</h4>
+      <ol><li data-i18n="m3_s1">Open Lightroom Classic</li><li data-i18n="m3_s2">Go to Develop module</li><li data-i18n="m3_s3">Find Presets panel</li><li data-i18n="m3_s4">Click + icon</li><li data-i18n="m3_s5">Choose Import Presets</li><li data-i18n="m3_s6">Select the preset file</li><li data-i18n="m3_s7">Click Import</li><li data-i18n="m3_s8">Check if preset appears in list</li></ol>
+    </div>
+  </div>
+</section>
+
+<!-- MODULE 4 -->
+<section id="module-4">
+  <div class="wrap">
+    <span class="mono lbl" data-i18n="m4_lbl">Module 04</span>
+    <h2 data-i18n="m4_title">Installing the Preset in<br><span>Lightroom Cloud / Mobile</span></h2>
+    <div class="video-action"><div><b data-i18n="m4_video">Tutorial Video — Module 4</b></div><a class="btn gold" href="https://youtu.be/XMg76orghI0" target="_blank" data-i18n="btn_yt">Watch on YouTube ↗</a></div>
+    <div class="card"><h4 data-i18n="m4_dng_h">If your preset comes as DNG</h4><ol><li data-i18n="m4_d1">Import the DNG file into Lightroom Mobile</li><li data-i18n="m4_d2">Open the DNG photo</li><li data-i18n="m4_d3">Tap three-dot menu</li><li data-i18n="m4_d4">Choose Create Preset</li><li data-i18n="m4_d5">Name it Scout Studio Soft Malay Wedding</li><li data-i18n="m4_d6">Save the preset</li><li data-i18n="m4_d7">Apply it to your own photo</li></ol></div>
+  </div>
+</section>
+
+<!-- MODULE 5 -->
+<section id="module-5">
+  <div class="wrap">
+    <span class="mono lbl" data-i18n="m5_lbl">Module 05</span>
+    <h2 data-i18n="m5_title">Applying the Preset<br><span>Properly</span></h2>
+    <div class="video-action"><div><b data-i18n="m5_video">Tutorial Video — Module 5</b></div><a class="btn gold" href="https://youtu.be/slDUOYLSd5I" target="_blank" data-i18n="btn_yt">Watch on YouTube ↗</a></div>
+    <div class="card"><h4 data-i18n="m5_before">Before applying, check</h4><ul class="check"><li data-i18n="m5_b1">Is the photo too dark? Too bright?</li><li data-i18n="m5_b2">Is the face too yellow? Too red?</li><li data-i18n="m5_b3">Is white baju overexposed? Background too green?</li></ul><h4 style="margin-top:18px" data-i18n="m5_after">After applying, check</h4><ul class="check"><li>Exposure</li><li>Temperature</li><li>Tint</li><li>Highlights</li><li>Shadows</li><li>Skin tone</li><li>Crop</li></ul></div>
+  </div>
+</section>
+
+<!-- MODULE 6 -->
+<section id="module-6">
+  <div class="wrap">
+    <span class="mono lbl" data-i18n="m6_lbl">Module 06</span>
+    <h2 data-i18n="m6_title">Basic Adjustment<br><span>Formula</span></h2>
+    <div class="video-action"><div><b data-i18n="m6_video">Tutorial Video — Module 6</b></div><a class="btn gold" href="https://youtu.be/yZJPnZubRJQ" target="_blank" data-i18n="btn_yt">Watch on YouTube ↗</a></div>
+    <div class="card gold"><h4 data-i18n="m6_formula">Core formula — Light first, color second, skin last</h4><p><strong data-i18n="m6_formula_p">Apply Preset → Exposure → Shadows → Highlights → Temperature & Tint → Skin Tone</strong></p></div>
+  </div>
+</section>
+
+<!-- MODULE 7 -->
+<section id="module-7">
+  <div class="wrap">
+    <span class="mono lbl" data-i18n="m7_lbl">Module 07</span>
+    <h2 data-i18n="m7_title">Common Editing Problems<br><span>& Quick Fixes</span></h2>
+    <div class="grid2">
+      <div class="video-action"><div><b data-i18n="m7_p1">Tutorial Part 1</b></div><a class="btn gold" href="https://youtu.be/gVN5HR6bq98" target="_blank" data-i18n="btn_yt">Watch ↗</a></div>
+      <div class="video-action"><div><b data-i18n="m7_p2">Tutorial Part 2</b></div><a class="btn gold" href="https://youtu.be/Vx14cJJ4Xc0" target="_blank" data-i18n="btn_yt">Watch ↗</a></div>
+    </div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="card"><h4 data-i18n="m7_orange">Photo Too Orange</h4><p data-i18n="m7_orange_p">Cause: Temp too high. Fix: Reduce temp, reduce orange saturation.</p></div>
+      <div class="card"><h4 data-i18n="m7_red">Skin Too Red</h4><p data-i18n="m7_red_p">Cause: Tint too magenta. Fix: Tint toward green, reduce red saturation.</p></div>
+      <div class="card"><h4 data-i18n="m7_dark">Face Too Dark</h4><p data-i18n="m7_dark_p">Cause: Backlight. Fix: Increase exposure, lift shadows, use masking.</p></div>
+      <div class="card"><h4 data-i18n="m7_white">White Baju Overexposed</h4><p data-i18n="m7_white_p">Cause: Exposure too high. Fix: Reduce highlights, whites, exposure slightly.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MODULE 8 -->
+<section id="module-8">
+  <div class="wrap">
+    <span class="mono lbl" data-i18n="m8_lbl">Module 08</span>
+    <h2 data-i18n="m8_title">Cropping and<br><span>Straightening</span></h2>
+    <div class="video-action"><div><b data-i18n="m8_video">Tutorial Video — Module 8</b></div><a class="btn gold" href="https://youtu.be/S-P8beqf6iQ" target="_blank" data-i18n="btn_yt">Watch on YouTube ↗</a></div>
+    <div class="card"><h4 data-i18n="m8_check">Before exporting, check</h4><ul class="check"><li data-i18n="m8_c1">Is photo straight? Couple positioned nicely?</li><li data-i18n="m8_c2">Is pelamin line straight?</li><li data-i18n="m8_c3">Too much empty space? Distracting edge?</li></ul></div>
+  </div>
+</section>
+
+<!-- MODULE 9 -->
+<section id="module-9">
+  <div class="wrap">
+    <span class="mono lbl" data-i18n="m9_lbl">Module 09</span>
+    <h2 data-i18n="m9_title">Before and After<br><span>Review</span></h2>
+    <div class="video-action"><div><b data-i18n="m9_video">Tutorial Video — Module 9</b></div><a class="btn gold" href="https://youtu.be/oZNE56ATfws" target="_blank" data-i18n="btn_yt">Watch on YouTube ↗</a></div>
+  </div>
+</section>
+
+<!-- MODULE 10 -->
+<section id="module-10">
+  <div class="wrap">
+    <span class="mono lbl" data-i18n="m10_lbl">Module 10</span>
+    <h2 data-i18n="m10_title">Export Setting for<br><span>Final JPG</span></h2>
+    <div class="video-action"><div><b data-i18n="m10_video">Tutorial Video — Module 10</b></div><a class="btn gold" href="https://youtu.be/9FcRYsSEALM" target="_blank" data-i18n="btn_yt">Watch on YouTube ↗</a></div>
+    <div class="card"><h4 data-i18n="m10_settings">Recommended export settings</h4><ul class="check"><li>File Format: JPG</li><li>Color Space: sRGB</li><li>Quality: 100</li><li>Resize: Long Edge 3000-4000px</li><li>Resolution: 240-300ppi</li><li>Sharpening: Standard for Screen</li></ul></div>
+  </div>
+</section>
+
+<section id="quickref" style="background:var(--paper2)">
+  <div class="wrap">
+    <span class="mono lbl" data-i18n="qr_lbl">Quick Reference</span>
+    <h2 data-i18n="qr_title">Quick Reference</h2>
+    <div class="card"><h4 data-i18n="qr_formula">Basic Editing Formula — use every time</h4><ol class="formula"><li data-i18n="qr_1">Apply Scout Studio Soft Malay Wedding preset</li><li data-i18n="qr_2">Adjust exposure</li><li data-i18n="qr_3">Adjust temperature</li><li data-i18n="qr_4">Adjust tint</li><li data-i18n="qr_5">Check skin tone</li><li data-i18n="qr_6">Recover highlights</li><li data-i18n="qr_7">Lift shadows if needed</li><li data-i18n="qr_8">Crop and straighten</li><li data-i18n="qr_9">Compare before and after</li><li data-i18n="qr_10">Export JPG</li></ol></div>
+  </div>
+</section>
+
+<section id="support">
+  <div class="wrap">
+    <span class="mono lbl" data-i18n="sp_lbl">Support</span>
+    <h2 data-i18n="sp_title">Support &<br><span>Questions</span></h2>
+    <div class="card"><h4 data-i18n="sp_need">Need help?</h4><p data-i18n="sp_p1">For any questions, preset installation issues, or further explanation, join our Telegram support group:</p><a class="btn gold" href="https://t.me/+ayWt4j_bI9VlZmJl" target="_blank" data-i18n="btn_telegram">Join Support Telegram ↗</a></div>
+  </div>
+</section>
+
+<footer>
+  <p data-i18n="footer">Scout Studio — Soft Malay Wedding Lightroom E-book V1.0<br>© 2026 Scout Studio Wedding</p>
+  <p style="margin-top:8px"><a href="#toc" data-i18n="back_top">Back to top ↑</a></p>
+</footer>
+
+<script>
+const prog=document.getElementById('prog');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const scrolled=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
+  prog.style.width=scrolled+'%';
+});
+function toggleMenu(){
+  const el=document.getElementById('navLinks');
+  el.classList.toggle('open');
+}
+function setTheme(t){
+  document.documentElement.setAttribute('data-theme',t);
+  localStorage.setItem('scout_theme',t);
+  document.querySelectorAll('#themeSwitch button').forEach(b=>b.classList.toggle('active',b.dataset.theme===t));
+}
+function setLang(l){
+  document.documentElement.setAttribute('lang',l);
+  localStorage.setItem('scout_lang',l);
+  document.querySelectorAll('#langSwitch button').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
+  applyLang(l);
+}
+const translations={
+  ms:{
+    eyebrow:"Scout Studio",
+    cover_h1:"Soft Malay<br><em>Wedding</em><br>Lightroom<br>E-book V1.0",
+    cover_lead:"Kit permulaan untuk jurugambar yang mahukan look Malay wedding yang lembut, bersih dan timeless — dengan preset, formula, tutorial video dan panduan eksport.",
+    btn_start:"Mula Membaca ↓",
+    btn_preset:"Muat Turun Preset",
+    nav_1:"01 Look",nav_2:"02 Install",nav_3:"03 Classic",nav_4:"04 Mobile",nav_5:"05 Apply",nav_6:"06 Formula",nav_7:"07 Masalah",nav_8:"08 Crop",nav_9:"09 Review",nav_10:"10 Eksport",nav_support:"Sokongan",
+    toc_lbl:"Isi Kandungan",
+    toc_title:"Semua di dalam <span>pakej</span>",
+    toc_1:"01 — Memahami Look Soft Malay Wedding",toc_1_sub:"Modul 1 · Video",
+    toc_2:"02 — Instalasi Preset & Pengurusan Fail",toc_2_sub:"Modul 2 · Video + Muat Turun",
+    toc_3:"03 — Instalasi Preset di Lightroom Classic",toc_3_sub:"Modul 3 · Video",
+    toc_4:"04 — Instalasi Preset di Lightroom Cloud / Mobile",toc_4_sub:"Modul 4 · Video",
+    toc_5:"05 — Cara Apply Preset Dengan Betul",toc_5_sub:"Modul 5 · Video",
+    toc_6:"06 — Formula Asas Adjustment",toc_6_sub:"Modul 6 · Video",
+    toc_7:"07 — Masalah Editing & Penyelesaian Pantas",toc_7_sub:"Modul 7 · 2 Video",
+    toc_8:"08 — Cropping & Meluruskan",toc_8_sub:"Modul 8 · Video",
+    toc_9:"09 — Semakan Before & After",toc_9_sub:"Modul 9 · Video",
+    toc_10:"10 — Setting Eksport untuk JPG Akhir",toc_10_sub:"Modul 10 · Video",
+    toc_qr:"Rujukan Pantas — Formula Editing",toc_qr_sub:"Cheat sheet",
+    toc_sp:"Sokongan & Soalan",toc_sp_sub:"Kumpulan Telegram",
+    what_get:"Apa anda akan dapat",
+    wg_1:"Preset Soft Malay Wedding Scout Studio",
+    wg_2:"Panduan e-book digital langkah demi langkah",
+    wg_3:"Pautan video tutorial",
+    wg_4:"Formula asas adjustment Lightroom",
+    wg_5:"Panduan setting eksport",
+    wg_6:"Panduan masalah dan penyelesaian",
+    wg_7:"Rujukan before & after editing",
+    m1_lbl:"Modul 01",
+    m1_title:"Memahami <span>Look Soft Malay Wedding</span>",
+    m1_video:"Video Tutorial — Modul 1",
+    m1_video_sub:"Walkthrough langkah demi langkah",
+    btn_yt:"Tonton di YouTube ↗",
+    m1_note_h:"Nota Penting",
+    m1_p1:"Gaya Soft Malay Wedding adalah tentang menghasilkan foto wedding yang terasa bersih, lembut, cerah, romantik dan natural. Foto harus kelihatan elegan tanpa rasa terlalu berat, terlalu kontras, atau over-edit.",
+    m1_p2:"Imej akhir harus mempunyai rasa cerah dan airy, terutama untuk scene Malay wedding dengan busana putih, dekorasi pelamin, latar bunga dan pencahayaan indoor yang lembut.",
+    m1_wb:"White Balance",m1_wb_p:"Foto tidak sepatutnya terlalu kuning, terlalu biru, atau terlalu hijau.",
+    m1_skin:"Tona Kulit",m1_skin_p:"Wajah harus kelihatan lembut dan natural. Elak terlalu oren, terlalu merah, atau terlalu pucat.",
+    m1_hl:"Kawalan Highlight",m1_hl_p:"Foto Malay wedding sering ada baju putih, veil, pelamin cerah. Pastikan kawasan putih masih simpan detail.",
+    m1_green:"Kawalan Hijau",m1_green_p:"Dekorasi pelamin ada banyak daun hijau. Hijau harus menyokong subjek, bukan mendominasi.",
+    m2_lbl:"Modul 02",
+    m2_title:"Instalasi Preset<br><span>& Pengurusan Fail</span>",
+    m2_video:"Video Tutorial — Modul 2",
+    m2_video_sub:"Cara susun fail anda",
+    m2_dl:"Muat Turun Preset Anda",
+    m2_dl_p:"Fail preset XMP anda ada di Google Drive. Jika anda terima fail ZIP, extract dahulu sebelum import ke Lightroom Classic.",
+    btn_dl:"Muat Turun Preset Sekarang ↗",
+    m2_dl_note:"Folder disyorkan: Scout Studio Soft Malay Wedding Preset — Simpan salinan backup.",
+    m3_lbl:"Modul 03",
+    m3_title:"Memasang Preset di<br><span>Lightroom Classic</span>",
+    m3_video:"Video Tutorial — Modul 3",
+    m3_steps_h:"Langkah asas instalasi",
+    m3_s1:"Buka Lightroom Classic",m3_s2:"Pergi ke modul Develop",m3_s3:"Cari panel Presets",m3_s4:"Klik ikon +",m3_s5:"Pilih Import Presets",m3_s6:"Pilih fail preset",m3_s7:"Klik Import",m3_s8:"Periksa jika preset muncul dalam senarai",
+    m4_lbl:"Modul 04",
+    m4_title:"Memasang Preset di<br><span>Lightroom Cloud / Mobile</span>",
+    m4_video:"Video Tutorial — Modul 4",
+    m4_dng_h:"Jika preset anda dalam format DNG",
+    m4_d1:"Import fail DNG ke Lightroom Mobile",m4_d2:"Buka foto DNG",m4_d3:"Ketik menu tiga titik",m4_d4:"Pilih Create Preset",m4_d5:"Namakan Scout Studio Soft Malay Wedding",m4_d6:"Simpan preset",m4_d7:"Apply pada foto anda sendiri",
+    m5_lbl:"Modul 05",
+    m5_title:"Cara Apply Preset<br><span>Dengan Betul</span>",
+    m5_video:"Video Tutorial — Modul 5",
+    m5_before:"Sebelum apply, periksa",
+    m5_b1:"Foto terlalu gelap? Terlalu cerah?",
+    m5_b2:"Muka terlalu kuning? Terlalu merah?",
+    m5_b3:"Baju putih overexposed? Background terlalu hijau?",
+    m5_after:"Selepas apply, periksa",
+    m6_lbl:"Modul 06",
+    m6_title:"Formula Asas<br><span>Adjustment</span>",
+    m6_video:"Video Tutorial — Modul 6",
+    m6_formula:"Formula teras — Cahaya dulu, warna kedua, kulit terakhir",
+    m6_formula_p:"Apply Preset → Exposure → Shadows → Highlights → Temperature & Tint → Skin Tone",
+    m7_lbl:"Modul 07",
+    m7_title:"Masalah Editing Biasa<br><span>& Penyelesaian Pantas</span>",
+    m7_p1:"Tutorial Bahagian 1",
+    m7_p2:"Tutorial Bahagian 2",
+    m7_orange:"Foto Terlalu Oren",
+    m7_orange_p:"Punca: Temp terlalu tinggi. Baiki: Kurangkan temp, kurangkan saturasi oren.",
+    m7_red:"Kulit Terlalu Merah",
+    m7_red_p:"Punca: Tint terlalu magenta. Baiki: Tint ke arah hijau, kurangkan saturasi merah.",
+    m7_dark:"Muka Terlalu Gelap",
+    m7_dark_p:"Punca: Backlight. Baiki: Naikkan exposure, angkat shadow, guna masking.",
+    m7_white:"Baju Putih Overexposed",
+    m7_white_p:"Punca: Exposure terlalu tinggi. Baiki: Kurangkan highlight, whites, exposure sedikit.",
+    m8_lbl:"Modul 08",
+    m8_title:"Cropping dan<br><span>Meluruskan</span>",
+    m8_video:"Video Tutorial — Modul 8",
+    m8_check:"Sebelum eksport, periksa",
+    m8_c1:"Foto senget? Pasangan kedudukan cantik?",
+    m8_c2:"Garis pelamin lurus?",
+    m8_c3:"Ruang kosong terlalu banyak? Ada gangguan di tepi?",
+    m9_lbl:"Modul 09",
+    m9_title:"Semakan Before dan After<br><span>Review</span>",
+    m9_video:"Video Tutorial — Modul 9",
+    m10_lbl:"Modul 10",
+    m10_title:"Setting Eksport untuk<br><span>JPG Akhir</span>",
+    m10_video:"Video Tutorial — Modul 10",
+    m10_settings:"Setting eksport disyorkan",
+    qr_lbl:"Rujukan Pantas",
+    qr_title:"Rujukan Pantas",
+    qr_formula:"Formula Asas Editing — guna setiap kali",
+    qr_1:"Apply preset Soft Malay Wedding Scout Studio",
+    qr_2:"Laraskan exposure",
+    qr_3:"Laraskan temperature",
+    qr_4:"Laraskan tint",
+    qr_5:"Periksa tona kulit",
+    qr_6:"Recover highlight",
+    qr_7:"Angkat shadow jika perlu",
+    qr_8:"Crop dan luruskan",
+    qr_9:"Bandingkan before dan after",
+    qr_10:"Eksport JPG",
+    sp_lbl:"Sokongan",
+    sp_title:"Sokongan &<br><span>Soalan</span>",
+    sp_need:"Perlukan bantuan?",
+    sp_p1:"Untuk sebarang soalan, masalah instalasi preset, atau penjelasan lanjut, sertai kumpulan Telegram sokongan kami:",
+    btn_telegram:"Sertai Telegram Sokongan ↗",
+    footer:"Scout Studio — Soft Malay Wedding Lightroom E-book V1.0<br>© 2026 Scout Studio Wedding",
+    back_top:"Kembali ke atas ↑"
+  },
+  en:{
+    eyebrow:"Scout Studio",
+    cover_h1:"Soft Malay<br><em>Wedding</em><br>Lightroom<br>E-book V1.0",
+    cover_lead:"A starter kit for photographers who want a soft, clean and timeless Malay wedding look — with preset, formula, video tutorials and export guide.",
+    btn_start:"Start Reading ↓",
+    btn_preset:"Download Preset",
+    nav_1:"01 Look",nav_2:"02 Install",nav_3:"03 Classic",nav_4:"04 Mobile",nav_5:"05 Apply",nav_6:"06 Formula",nav_7:"07 Problems",nav_8:"08 Crop",nav_9:"09 Review",nav_10:"10 Export",nav_support:"Support",
+    toc_lbl:"Table of Contents",
+    toc_title:"Everything inside the <span>package</span>",
+    toc_1:"01 — Understanding the Soft Malay Wedding Look",toc_1_sub:"Module 1 · Video",
+    toc_2:"02 — Preset Installation & File Management",toc_2_sub:"Module 2 · Video + Download",
+    toc_3:"03 — Installing Preset in Lightroom Classic",toc_3_sub:"Module 3 · Video",
+    toc_4:"04 — Installing Preset in Lightroom Cloud / Mobile",toc_4_sub:"Module 4 · Video",
+    toc_5:"05 — Applying the Preset Properly",toc_5_sub:"Module 5 · Video",
+    toc_6:"06 — Basic Adjustment Formula",toc_6_sub:"Module 6 · Video",
+    toc_7:"07 — Common Editing Problems & Quick Fixes",toc_7_sub:"Module 7 · 2 Videos",
+    toc_8:"08 — Cropping & Straightening",toc_8_sub:"Module 8 · Video",
+    toc_9:"09 — Before & After Review",toc_9_sub:"Module 9 · Video",
+    toc_10:"10 — Export Setting for Final JPG",toc_10_sub:"Module 10 · Video",
+    toc_qr:"Quick Reference — Editing Formula",toc_qr_sub:"Cheat sheet",
+    toc_sp:"Support & Questions",toc_sp_sub:"Telegram Group",
+    what_get:"What you will get",
+    wg_1:"Scout Studio Soft Malay Wedding Preset",
+    wg_2:"Step-by-step digital e-book guide",
+    wg_3:"Tutorial video links",
+    wg_4:"Basic Lightroom adjustment formula",
+    wg_5:"Export setting guide",
+    wg_6:"Common problem and solution guide",
+    wg_7:"Before and after editing reference",
+    m1_lbl:"Module 01",
+    m1_title:"Understanding the <span>Soft Malay Wedding Look</span>",
+    m1_video:"Tutorial Video — Module 1",
+    m1_video_sub:"Step-by-step walkthrough",
+    btn_yt:"Watch on YouTube ↗",
+    m1_note_h:"Important Notes",
+    m1_p1:"The Soft Malay Wedding style is about creating a wedding photo that feels clean, soft, bright, romantic, and natural. The photo should look elegant without feeling too heavy, too contrasty, or over-edited.",
+    m1_p2:"Final image should have a bright and airy feel, especially for Malay wedding scenes with white outfits, pelamin decoration, floral background, and soft indoor lighting.",
+    m1_wb:"White Balance",m1_wb_p:"Photo should not look too yellow, too blue, or too green.",
+    m1_skin:"Skin Tone",m1_skin_p:"Face should look soft and natural. Avoid too orange, too red, or too pale.",
+    m1_hl:"Highlight Control",m1_hl_p:"Malay wedding photos often have white baju, veil, bright pelamin. Make sure white areas still keep detail.",
+    m1_green:"Green Control",m1_green_p:"Pelamin decoration has many green leaves. Green should support the subject, not overpower.",
+    m2_lbl:"Module 02",
+    m2_title:"Preset Installation<br><span>& File Management</span>",
+    m2_video:"Tutorial Video — Module 2",
+    m2_video_sub:"How to organize your files",
+    m2_dl:"Download Your Preset",
+    m2_dl_p:"Your XMP preset files are in Google Drive. If you receive a ZIP file, extract first before importing into Lightroom Classic.",
+    btn_dl:"Download Preset Now ↗",
+    m2_dl_note:"Recommended folder: Scout Studio Soft Malay Wedding Preset — Keep a backup copy.",
+    m3_lbl:"Module 03",
+    m3_title:"Installing the Preset in<br><span>Lightroom Classic</span>",
+    m3_video:"Tutorial Video — Module 3",
+    m3_steps_h:"Basic installation steps",
+    m3_s1:"Open Lightroom Classic",m3_s2:"Go to Develop module",m3_s3:"Find Presets panel",m3_s4:"Click + icon",m3_s5:"Choose Import Presets",m3_s6:"Select the preset file",m3_s7:"Click Import",m3_s8:"Check if preset appears in list",
+    m4_lbl:"Module 04",
+    m4_title:"Installing the Preset in<br><span>Lightroom Cloud / Mobile</span>",
+    m4_video:"Tutorial Video — Module 4",
+    m4_dng_h:"If your preset comes as DNG",
+    m4_d1:"Import the DNG file into Lightroom Mobile",m4_d2:"Open the DNG photo",m4_d3:"Tap three-dot menu",m4_d4:"Choose Create Preset",m4_d5:"Name it Scout Studio Soft Malay Wedding",m4_d6:"Save the preset",m4_d7:"Apply it to your own photo",
+    m5_lbl:"Module 05",
+    m5_title:"Applying the Preset<br><span>Properly</span>",
+    m5_video:"Tutorial Video — Module 5",
+    m5_before:"Before applying, check",
+    m5_b1:"Is the photo too dark? Too bright?",
+    m5_b2:"Is the face too yellow? Too red?",
+    m5_b3:"Is white baju overexposed? Background too green?",
+    m5_after:"After applying, check",
+    m6_lbl:"Module 06",
+    m6_title:"Basic Adjustment<br><span>Formula</span>",
+    m6_video:"Tutorial Video — Module 6",
+    m6_formula:"Core formula — Light first, color second, skin last",
+    m6_formula_p:"Apply Preset → Exposure → Shadows → Highlights → Temperature & Tint → Skin Tone",
+    m7_lbl:"Module 07",
+    m7_title:"Common Editing Problems<br><span>& Quick Fixes</span>",
+    m7_p1:"Tutorial Part 1",
+    m7_p2:"Tutorial Part 2",
+    m7_orange:"Photo Too Orange",
+    m7_orange_p:"Cause: Temp too high. Fix: Reduce temp, reduce orange saturation.",
+    m7_red:"Skin Too Red",
+    m7_red_p:"Cause: Tint too magenta. Fix: Tint toward green, reduce red saturation.",
+    m7_dark:"Face Too Dark",
+    m7_dark_p:"Cause: Backlight. Fix: Increase exposure, lift shadows, use masking.",
+    m7_white:"White Baju Overexposed",
+    m7_white_p:"Cause: Exposure too high. Fix: Reduce highlights, whites, exposure slightly.",
+    m8_lbl:"Module 08",
+    m8_title:"Cropping and<br><span>Straightening</span>",
+    m8_video:"Tutorial Video — Module 8",
+    m8_check:"Before exporting, check",
+    m8_c1:"Is photo straight? Couple positioned nicely?",
+    m8_c2:"Is pelamin line straight?",
+    m8_c3:"Too much empty space? Distracting edge?",
+    m9_lbl:"Module 09",
+    m9_title:"Before and After<br><span>Review</span>",
+    m9_video:"Tutorial Video — Module 9",
+    m10_lbl:"Module 10",
+    m10_title:"Export Setting for<br><span>Final JPG</span>",
+    m10_video:"Tutorial Video — Module 10",
+    m10_settings:"Recommended export settings",
+    qr_lbl:"Quick Reference",
+    qr_title:"Quick Reference",
+    qr_formula:"Basic Editing Formula — use every time",
+    qr_1:"Apply Scout Studio Soft Malay Wedding preset",
+    qr_2:"Adjust exposure",
+    qr_3:"Adjust temperature",
+    qr_4:"Adjust tint",
+    qr_5:"Check skin tone",
+    qr_6:"Recover highlights",
+    qr_7:"Lift shadows if needed",
+    qr_8:"Crop and straighten",
+    qr_9:"Compare before and after",
+    qr_10:"Export JPG",
+    sp_lbl:"Support",
+    sp_title:"Support &<br><span>Questions</span>",
+    sp_need:"Need help?",
+    sp_p1:"For any questions, preset installation issues, or further explanation, join our Telegram support group:",
+    btn_telegram:"Join Support Telegram ↗",
+    footer:"Scout Studio — Soft Malay Wedding Lightroom E-book V1.0<br>© 2026 Scout Studio Wedding",
+    back_top:"Back to top ↑"
+  }
+};
+function applyLang(lang){
+  const dict=translations[lang]||translations.en;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key=el.getAttribute('data-i18n');
+    if(dict[key]){
+      // allow <br> and <span> in translation
+      el.innerHTML=dict[key];
+    }
+  });
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  const savedLang=localStorage.getItem('scout_lang')||'en';
+  const savedTheme=localStorage.getItem('scout_theme')||'light';
+  document.documentElement.setAttribute('lang',savedLang);
+  document.documentElement.setAttribute('data-theme',savedTheme);
+  document.querySelectorAll('#langSwitch button').forEach(b=>b.classList.toggle('active',b.dataset.lang===savedLang));
+  document.querySelectorAll('#themeSwitch button').forEach(b=>b.classList.toggle('active',b.dataset.theme===savedTheme));
+  applyLang(savedLang);
+});
+</script>
+</body>
+</html>
